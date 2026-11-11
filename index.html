@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renal Replacement Therapies — A Guide for Patients</title>
+<style>
+  :root{
+    --paper:#faf7f2; --ink:#22333b; --muted:#5c6b73;
+    --teal:#0f766e; --teal-soft:#d7ece9; --coral:#c2553d; --coral-soft:#f6e3dc;
+    --card:#ffffff; --border:#e4ddd2; --radius:14px;
+    --serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --sans:"Avenir Next","Segoe UI",Helvetica,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}
+  h1,h2,h3{font-family:var(--serif);line-height:1.2;text-wrap:balance}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{background:var(--ink);color:var(--paper);padding:56px 0 40px}
+  header h1{font-size:clamp(28px,5vw,44px);margin:0 0 8px;max-width:16ch}
+  header p{color:#c8d1d4;max-width:52ch;font-size:17px}
+  .lang{position:absolute;top:18px;right:20px;display:flex;gap:0;border:1px solid #56666e;border-radius:99px;overflow:hidden}
+  .lang button{background:transparent;color:#c8d1d4;border:0;padding:8px 18px;font:600 14px var(--sans);cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--paper);color:var(--ink)}
+  nav.toc{display:flex;flex-wrap:wrap;gap:10px;padding:22px 0}
+  nav.toc a{color:var(--teal);text-decoration:none;font-weight:600;font-size:15px;border-bottom:2px solid transparent}
+  nav.toc a:hover{border-color:var(--teal)}
+  section{padding:44px 0;border-top:1px solid var(--border)}
+  section h2{font-size:clamp(24px,3.5vw,32px);margin:0 0 6px}
+  .lede{color:var(--muted);font-size:17px;max-width:60ch;margin:0 0 26px}
+  .duo{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+  @media(max-width:760px){.duo{grid-template-columns:1fr}}
+  figure{margin:0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+  figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
+  svg{display:block;width:100%;height:auto}
+  .lbl{font:600 13px var(--sans);fill:var(--ink)}
+  .lbl-sm{font:500 12px var(--sans);fill:var(--muted)}
+  .flow{stroke-dasharray:6 8;animation:flow 1.6s linear infinite}
+  .flow.slow{animation-duration:3s}
+  @keyframes flow{to{stroke-dashoffset:-28}}
+  @media(prefers-reduced-motion:reduce){.flow{animation:none}}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+  .legend span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+  .legend i{width:14px;height:4px;border-radius:2px;display:inline-block}
+  ul.points{padding-left:20px;margin:0}
+  ul.points li{margin:10px 0}
+  .facts{background:var(--teal-soft);border-radius:var(--radius);padding:18px 22px;margin-top:18px}
+  .facts h3{margin:0 0 8px;font-size:17px}
+  table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border-radius:var(--radius);overflow:hidden}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-family:var(--serif);font-size:16px;background:var(--card)}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:600;white-space:nowrap}
+  .sim{background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:26px;margin-top:14px}
+  .sim h3{margin:0 0 4px;color:var(--paper)}
+  .sim p{color:#aebbc0;font-size:14.5px;margin:0 0 14px}
+  .sim label{font-weight:600;font-size:14px}
+  .sim input[type=range]{width:100%;accent-color:var(--coral);margin:6px 0 16px}
+  .sim .out{display:flex;gap:24px;flex-wrap:wrap;margin-top:6px}
+  .sim .out b{font-size:26px;font-family:var(--serif);display:block}
+  .sim .out span{color:#aebbc0;font-size:13px}
+  .disclaimer{background:var(--coral-soft);border-radius:var(--radius);padding:16px 22px;font-size:14.5px;margin-top:34px}
+  .disclaimer b{color:var(--coral)}
+  footer{padding:36px 0 60px;color:var(--muted);font-size:13.5px}
+  .hovercard{position:relative}
+  .hovercard .tip{position:absolute;background:var(--ink);color:var(--paper);font:500 13px var(--sans);padding:8px 12px;border-radius:8px;max-width:240px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:5}
+  .hovercard .tip.on{opacity:1}
+  [data-hot]{cursor:pointer;transition:opacity .15s}
+  [data-hot]:hover{opacity:.75}
+</style>
+</head>
+<body>
+<div style="position:relative">
+<header>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="btn-en" aria-pressed="true">EN</button>
+    <button id="btn-es" aria-pressed="false">ES</button>
+  </div>
+  <div class="wrap">
+    <h1 data-i18n="title"></h1>
+    <p data-i18n="subtitle"></p>
+  </div>
+</header>
+</div>
+
+<div class="wrap">
+<nav class="toc" aria-label="Sections">
+  <a href="#why" data-i18n="nav-why"></a>
+  <a href="#hd" data-i18n="nav-hd"></a>
+  <a href="#pd" data-i18n="nav-pd"></a>
+  <a href="#tx" data-i18n="nav-tx"></a>
+  <a href="#cc" data-i18n="nav-cc"></a>
+  <a href="#compare" data-i18n="nav-compare"></a>
+</nav>
+
+<!-- ============ WHY ============ -->
+<section id="why">
+  <h2 data-i18n="why-h"></h2>
+  <p class="lede" data-i18n="why-lede"></p>
+  <div class="duo">
+    <div>
+      <p data-i18n="why-p1"></p>
+      <p data-i18n="why-p2"></p>
+      <div class="facts">
+        <h3 data-i18n="why-facts-h"></h3>
+        <p data-i18n="why-facts" style="margin:0;font-size:15px"></p>
+      </div>
+    </div>
+    <figure>
+      <!-- Nephron / kidney function mini diagram -->
+      <svg viewBox="0 0 360 250" role="img" aria-label="Healthy kidney filters blood; failed kidney does not">
+        <text class="lbl" x="20" y="24" data-svg="k-healthy"></text>
+        <!-- kidney bean -->
+        <path d="M70 60 C120 40 160 60 160 105 C160 150 120 180 82 172 C58 167 48 140 56 118 C40 112 38 78 70 60 Z" fill="#b8563f" opacity=".85"/>
+        <text class="lbl-sm" x="72" y="118" data-svg="k-filter"></text>
+        <!-- artery in, vein out -->
+        <path class="flow" d="M20 90 C40 88 50 84 62 80" stroke="#c2553d" stroke-width="5" fill="none"/>
+        <path class="flow" d="M62 150 C50 152 40 154 22 154" stroke="#3d6b8f" stroke-width="5" fill="none"/>
+        <text class="lbl-sm" x="12" y="78" data-svg="k-blood-in"></text>
+        <text class="lbl-sm" x="12" y="172" data-svg="k-blood-out"></text>
+        <!-- urine out -->
+        <path class="flow slow" d="M100 178 C110 200 130 210 150 214" stroke="#e0b64a" stroke-width="4" fill="none"/>
+        <text class="lbl-sm" x="152" y="222" data-svg="k-urine"></text>
+        <!-- failed -->
+        <text class="lbl" x="220" y="24" data-svg="k-failed"></text>
+        <path d="M270 60 C320 40 352 60 350 105 C348 150 312 180 276 172 C254 167 246 140 253 118 C238 112 240 78 270 60 Z" fill="#9aa3a8" opacity=".6"/>
+        <path d="M262 74 L340 166 M340 74 L262 166" stroke="#c2553d" stroke-width="3" opacity=".7"/>
+        <text class="lbl-sm" x="248" y="118" data-svg="k-nofilter"></text>
+        <text class="lbl-sm" x="232" y="205" data-svg="k-note"></text>
+      </svg>
+      <figcaption data-i18n="why-fig"></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ HEMODIALYSIS ============ -->
+<section id="hd">
+  <h2 data-i18n="hd-h"></h2>
+  <p class="lede" data-i18n="hd-lede"></p>
+  <div class="duo">
+    <figure class="hovercard" id="hd-fig">
+      <!-- Hemodialysis circuit -->
+      <svg viewBox="0 0 460 300" role="img" aria-label="Blood leaves the body through a fistula, passes through a dialyzer, and returns cleaned">
+        <!-- body silhouette hint -->
+        <rect x="10" y="20" width="130" height="260" rx="24" fill="#efe9df"/>
+        <text class="lbl-sm" x="40" y="48" data-svg="hd-you"></text>
+        <!-- fistula arm -->
+        <path d="M40 120 C70 110 90 130 100 150" stroke="#c2553d" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <circle cx="40" cy="120" r="7" fill="#c2553d" data-hot data-tip-en="Access point: an artery and vein are joined (fistula) so needles can be placed easily" data-tip-es="Punto de acceso: se unen una arteria y una vena (fístula) para colocar las agujas fácilmente"/>
+        <!-- arterial line -->
+        <path class="flow" d="M100 150 C170 150 190 130 220 130" stroke="#c2553d" stroke-width="5" fill="none"/>
+        <text class="lbl-sm" x="128" y="140" data-svg="hd-out"></text>
+        <!-- dialyzer -->
+        <rect x="220" y="80" width="60" height="150" rx="10" fill="#d7ece9" stroke="#0f766e" stroke-width="2"/>
+        <!-- fibers -->
+        <g stroke="#0f766e" stroke-width="2" opacity=".55">
+          <path d="M232 90 L232 220"/><path d="M242 90 L242 220"/><path d="M252 90 L252 220"/><path d="M262 90 L262 220"/><path d="M270 90 L270 220"/>
+        </g>
+        <!-- dialysate in/out -->
+        <path class="flow slow" d="M310 230 C300 230 290 220 282 210" stroke="#3d6b8f" stroke-width="4" fill="none"/>
+        <path class="flow slow" d="M282 100 C290 92 300 82 310 78" stroke="#e0b64a" stroke-width="4" fill="none"/>
+        <text class="lbl-sm" x="316" y="234" data-svg="hd-dial-in"></text>
+        <text class="lbl-sm" x="316" y="76" data-svg="hd-dial-out"></text>
+        <text class="lbl" x="196" y="66" data-svg="hd-dialyzer"></text>
+        <!-- venous return -->
+        <path class="flow" d="M220 210 C190 220 160 224 96 208" stroke="#8f3d55" stroke-width="5" fill="none"/>
+        <text class="lbl-sm" x="120" y="240" data-svg="hd-return"></text>
+        <!-- pump -->
+        <circle cx="170" cy="150" r="12" fill="#fff" stroke="#22333b" stroke-width="2" data-hot data-tip-en="Blood pump: moves your blood through the circuit at a steady, safe rate" data-tip-es="Bomba de sangre: mueve la sangre por el circuito a un ritmo constante y seguro"/>
+        <text class="lbl-sm" x="152" y="178" data-svg="hd-pump"></text>
+      </svg>
+      <div class="tip" role="tooltip"></div>
+      <figcaption data-i18n="hd-fig"></figcaption>
+      <div class="legend">
+        <span><i style="background:#c2553d"></i><span data-i18n="lg-dirty"></span></span>
+        <span><i style="background:#8f3d55"></i><span data-i18n="lg-clean"></span></span>
+        <span><i style="background:#3d6b8f"></i><span data-i18n="lg-dialysate"></span></span>
+      </div>
+    </figure>
+    <div>
+      <p data-i18n="hd-p1"></p>
+      <ul class="points">
+        <li data-i18n="hd-li1"></li>
+        <li data-i18n="hd-li2"></li>
+        <li data-i18n="hd-li3"></li>
+      </ul>
+      <div class="facts">
+        <h3 data-i18n="hd-facts-h"></h3>
+        <p data-i18n="hd-facts" style="margin:0;font-size:15px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERITONEAL DIALYSIS ============ -->
+<section id="pd">
+  <h2 data-i18n="pd-h"></h2>
+  <p class="lede" data-i18n="pd-lede"></p>
+  <div class="duo">
+    <div>
+      <p data-i18n="pd-p1"></p>
+      <ul class="points">
+        <li data-i18n="pd-li1"></li>
+        <li data-i18n="pd-li2"></li>
+      </ul>
+      <div class="facts">
+        <h3 data-i18n="pd-facts-h"></h3>
+        <p data-i18n="pd-facts" style="margin:0;font-size:15px"></p>
+      </div>
+    </div>
+    <figure class="hovercard" id="pd-fig">
+      <svg viewBox="0 0 460 300" role="img" aria-label="A soft catheter brings fluid into the belly; the belly lining filters the blood">
+        <!-- torso -->
+        <path d="M160 40 C150 90 150 200 162 258 L298 258 C310 200 310 90 300 40 Z" fill="#efe9df"/>
+        <!-- peritoneum -->
+        <path d="M172 90 C180 170 190 215 230 230 C275 215 285 170 290 90 Z" fill="#d7ece9" opacity=".9"/>
+        <text class="lbl-sm" x="206" y="150" data-svg="pd-lining"></text>
+        <!-- vessels in lining -->
+        <path class="flow" d="M195 110 C205 150 215 185 230 205" stroke="#c2553d" stroke-width="3" fill="none"/>
+        <path class="flow" d="M265 110 C258 150 250 185 238 205" stroke="#3d6b8f" stroke-width="3" fill="none"/>
+        <!-- catheter -->
+        <path d="M230 20 L230 60 C230 75 230 85 230 95" stroke="#22333b" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M230 95 C228 130 236 160 232 190" stroke="#22333b" stroke-width="5" fill="none"/>
+        <circle cx="230" cy="20" r="6" fill="#c2553d" data-hot data-tip-en="The catheter exits near the navel; the cuff under the skin keeps infection out" data-tip-es="El catéter sale cerca del ombligo; el cefo bajo la piel evita infecciones"/>
+        <text class="lbl" x="248" y="30" data-svg="pd-cath"></text>
+        <!-- drain bag -->
+        <rect x="368" y="190" width="52" height="60" rx="6" fill="#fff" stroke="#22333b"/>
+        <path class="flow slow" d="M236 195 C290 210 330 216 366 220" stroke="#e0b64a" stroke-width="4" fill="none"/>
+        <text class="lbl-sm" x="366" y="268" data-svg="pd-bag"></text>
+        <text class="lbl-sm" x="330" y="120" data-svg="pd-fresh"></text>
+      </svg>
+      <div class="tip" role="tooltip"></div>
+      <figcaption data-i18n="pd-fig"></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ TRANSPLANT ============ -->
+<section id="tx">
+  <h2 data-i18n="tx-h"></h2>
+  <p class="lede" data-i18n="tx-lede"></p>
+  <div class="duo">
+    <figure class="hovercard" id="tx-fig">
+      <svg viewBox="0 0 460 300" role="img" aria-label="The donor kidney is placed in the lower abdomen and connected to blood vessels and the bladder">
+        <!-- torso outline -->
+        <path d="M120 30 C105 100 105 210 122 270 L338 270 C355 210 355 100 340 30 Z" fill="#efe9df"/>
+        <!-- own kidneys (faded) -->
+        <path d="M150 90 C170 80 186 92 186 116 C186 140 170 152 152 148 C141 145 137 130 141 120 C133 116 136 96 150 90 Z" fill="#9aa3a8" opacity=".5"/>
+        <path d="M310 90 C290 80 274 92 274 116 C274 140 290 152 308 148 C319 145 323 130 319 120 C327 116 324 96 310 90 Z" fill="#9aa3a8" opacity=".5"/>
+        <text class="lbl-sm" x="120" y="180" data-svg="tx-old"></text>
+        <!-- transplant kidney lower right -->
+        <path d="M278 196 C298 188 314 200 314 222 C314 244 298 256 280 252 C270 249 266 236 270 226 C262 222 264 202 278 196 Z" fill="#b8563f" data-hot data-tip-en="The new kidney is usually placed in the front of the lower belly — your own kidneys often stay" data-tip-es="El riñón nuevo suele colocarse en la parte baja del abdomen; tus riñones suelen quedarse"/>
+        <text class="lbl" x="286" y="186" data-svg="tx-new"></text>
+        <!-- connections -->
+        <path class="flow" d="M318 226 L368 218" stroke="#c2553d" stroke-width="5" fill="none"/>
+        <path class="flow" d="M316 240 L368 246" stroke="#3d6b8f" stroke-width="5" fill="none"/>
+        <path class="flow slow" d="M272 240 C240 248 214 252 196 254" stroke="#e0b64a" stroke-width="4" fill="none"/>
+        <ellipse cx="186" cy="256" rx="12" ry="8" fill="#fff" stroke="#22333b" stroke-width="2" data-hot data-tip-en="Connected to the bladder, so the new kidney can make urine right away" data-tip-es="Conectado a la vejiga, para que el riñón nuevo produzca orina de inmediato"/>
+        <text class="lbl-sm" x="150" y="278" data-svg="tx-bladder"></text>
+      </svg>
+      <div class="tip" role="tooltip"></div>
+      <figcaption data-i18n="tx-fig"></figcaption>
+    </figure>
+    <div>
+      <p data-i18n="tx-p1"></p>
+      <ul class="points">
+        <li data-i18n="tx-li1"></li>
+        <li data-i18n="tx-li2"></li>
+      </ul>
+      <div class="facts">
+        <h3 data-i18n="tx-facts-h"></h3>
+        <p data-i18n="tx-facts" style="margin:0;font-size:15px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONSERVATIVE CARE ============ -->
+<section id="cc">
+  <h2 data-i18n="cc-h"></h2>
+  <p class="lede" data-i18n="cc-lede"></p>
+  <div class="duo">
+    <div>
+      <p data-i18n="cc-p1"></p>
+      <p data-i18n="cc-p2"></p>
+    </div>
+    <div class="facts">
+      <h3 data-i18n="cc-facts-h"></h3>
+      <p data-i18n="cc-facts" style="margin:0;font-size:15px"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE ============ -->
+<section id="compare">
+  <h2 data-i18n="cmp-h"></h2>
+  <p class="lede" data-i18n="cmp-lede"></p>
+  <div style="overflow-x:auto">
+  <table>
+    <thead><tr>
+      <th></th>
+      <th data-i18n="cmp-hd"></th>
+      <th data-i18n="cmp-pd"></th>
+      <th data-i18n="cmp-tx"></th>
+      <th data-i18n="cmp-cc"></th>
+    </tr></thead>
+    <tbody>
+      <tr><td data-i18n="cmp-r-where"></td><td data-i18n="cmp-hd-where"></td><td data-i18n="cmp-pd-where"></td><td data-i18n="cmp-tx-where"></td><td data-i18n="cmp-cc-where"></td></tr>
+      <tr><td data-i18n="cmp-r-time"></td><td data-i18n="cmp-hd-time"></td><td data-i18n="cmp-pd-time"></td><td data-i18n="cmp-tx-time"></td><td data-i18n="cmp-cc-time"></td></tr>
+      <tr><td data-i18n="cmp-r-body"></td><td data-i18n="cmp-hd-body"></td><td data-i18n="cmp-pd-body"></td><td data-i18n="cmp-tx-body"></td><td data-i18n="cmp-cc-body"></td></tr>
+      <tr><td data-i18n="cmp-r-diet"></td><td data-i18n="cmp-hd-diet"></td><td data-i18n="cmp-pd-diet"></td><td data-i18n="cmp-tx-diet"></td><td data-i18n="cmp-cc-diet"></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Interactive simulator -->
+  <div class="sim">
+    <h3 data-i18n="sim-h"></h3>
+    <p data-i18n="sim-p"></p>
+    <label for="hrs"><span data-i18n="sim-lbl"></span>: <span id="hrs-val">4</span> h</label>
+    <input type="range" id="hrs" min="1" max="8" step="0.5" value="4">
+    <canvas id="clearCanvas" width="880" height="220" style="width:100%;height:auto;border-radius:8px;background:#182b31" aria-label="Chart of toxin clearance versus dialysis time"></canvas>
+    <div class="out">
+      <div><b id="out-clear">—</b><span data-i18n="sim-clear"></span></div>
+      <div><b id="out-note">—</b><span data-i18n="sim-note"></span></div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <b data-i18n="disc-h"></b> <span data-i18n="disc"></span>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer"></span>
+</footer>
+</div>
+
+<script>
+// ---------- i18n ----------
+const I18N = {
+  title:{en:"Renal Replacement Therapies",es:"Terapias de reemplazo renal"},
+  subtitle:{en:"When kidneys can no longer do their work, there are several well-established ways to take over. This guide explains each one, simply and honestly.",es:"Cuando los riñones ya no pueden hacer su trabajo, existen varias formas bien establecidas de sustituirlos. Esta guía explica cada una de forma sencilla y honesta."},
+  "nav-why":{en:"Why treatment is needed",es:"Por qué se necesita tratamiento"},
+  "nav-hd":{en:"Hemodialysis",es:"Hemodiálisis"},
+  "nav-pd":{en:"Peritoneal dialysis",es:"Diálisis peritoneal"},
+  "nav-tx":{en:"Transplant",es:"Trasplante"},
+  "nav-cc":{en:"Conservative care",es:"Cuidado conservador"},
+  "nav-compare":{en:"Compare options",es:"Comparar opciones"},
+  "why-h":{en:"Why treatment becomes necessary",es:"Por qué se vuelve necesario el tratamiento"},
+  "why-lede":{en:"Healthy kidneys filter waste, balance water and salts, and help control blood pressure and red blood cell production.",es:"Los riñones sanos filtran los desechos, equilibran el agua y las sales, y ayudan a controlar la presión arterial y la producción de glóbulos rojos."},
+  "why-p1":{en:"When kidneys lose most of their function (usually below 10–15%), waste and extra fluid build up in the blood. This is called kidney failure, or end-stage kidney disease.",es:"Cuando los riñones pierden la mayor parte de su función (generalmente por debajo del 10–15%), los desechos y el líquido extra se acumulan en la sangre. Esto se llama insuficiencia renal o enfermedad renal terminal."},
+  "why-p2":{en:"“Renal replacement therapy” simply means: a treatment that takes over the kidneys' filtering job. There are four paths — three active treatments and one supportive choice.",es:"«Terapia de reemplazo renal» significa, sencillamente, un tratamiento que asume el trabajo de filtrado de los riñones. Hay cuatro caminos: tres tratamientos activos y una opción de apoyo."},
+  "why-facts-h":{en:"Key idea",es:"Idea clave"},
+  "why-facts":{en:"None of these options is a cure — each is a different way to live well with kidney failure. The right choice depends on your health, lifestyle and preferences, discussed with your care team.",es:"Ninguna opción es una cura: cada una es una forma diferente de vivir bien con la insuficiencia renal. La elección correcta depende de tu salud, estilo de vida y preferencias, conversados con tu equipo médico."},
+  "k-healthy":{en:"Healthy kidney",es:"Riñón sano"},
+  "k-filter":{en:"filters",es:"filtra"},
+  "k-blood-in":{en:"blood in",es:"entra sangre"},
+  "k-blood-out":{en:"blood out",es:"sale sangre"},
+  "k-urine":{en:"urine",es:"orina"},
+  "k-failed":{en:"Failed kidney",es:"Riñón fallido"},
+  "k-nofilter":{en:"waste builds up",es:"se acumulan desechos"},
+  "k-note":{en:"← treatment takes over this job",es:"← el tratamiento toma este trabajo"},
+  "why-fig":{en:"Left: a healthy kidney cleaning blood. Right: without working filters, waste accumulates — this is what therapy replaces.",es:"Izquierda: un riñón sano que limpia la sangre. Derecha: sin filtros que funcionen, los desechos se acumulan; esto es lo que reemplaza la terapia."},
+  "lg-dirty":{en:"Blood with waste",es:"Sangre con desechos"},
+  "lg-clean":{en:"Cleaned blood",es:"Sangre limpia"},
+  "lg-dialysate":{en:"Dialysis fluid",es:"Líquido de diálisis"},
+  "hd-h":{en:"Hemodialysis",es:"Hemodiálisis"},
+  "hd-lede":{en:"Your blood is circulated through a special filter (a “dialyzer” or artificial kidney) that removes waste and extra water, then returned to your body.",es:"Tu sangre circula por un filtro especial («dializador» o riñón artificial) que elimina los desechos y el agua sobrante, y luego regresa a tu cuerpo."},
+  "hd-p1":{en:"Blood leaves through a vascular access — usually a fistula created in the arm by joining an artery and a vein. Inside the dialyzer, blood and a cleansing fluid (dialysate) flow on opposite sides of a thin membrane; waste crosses over, blood cells stay in.",es:"La sangre sale por un acceso vascular, normalmente una fístula creada en el brazo uniendo una arteria y una vena. Dentro del dializador, la sangre y un líquido limpiador (diálisis) fluyen a ambos lados de una membrana delgada; los desechos cruzan, las células sanguíneas se quedan."},
+  "hd-li1":{en:"In-center: typically 3 sessions per week, about 4 hours each, at a clinic.",es:"En centro: generalmente 3 sesiones por semana, de unas 4 horas cada una, en una clínica."},
+  "hd-li2":{en:"Home hemodialysis: the same treatment done by you (with training and support), often more frequent and shorter sessions.",es:"Hemodiálisis domiciliaria: el mismo tratamiento hecho por ti (con capacitación y apoyo), a menudo con sesiones más frecuentes y cortas."},
+  "hd-li3":{en:"Needles are used at each session; most people find them easier with time.",es:"Se usan agujas en cada sesión; a la mayoría se le hace más fácil con el tiempo."},
+  "hd-facts-h":{en:"Good to know",es:"Bueno saberlo"},
+  "hd-facts":{en:"The machine does the filtering, but your diet and fluid limits still matter. Missed sessions are the strongest predictor of feeling unwell between treatments.",es:"La máquina hace el filtrado, pero tu dieta y los límites de líquidos siguen siendo importantes. Perderse sesiones es el mayor predictor de sentirse mal entre tratamientos."},
+  "hd-you":{en:"your body",es:"tu cuerpo"},
+  "hd-out":{en:"blood out",es:"sangre sale"},
+  "hd-dialyzer":{en:"Dialyzer",es:"Dializador"},
+  "hd-dial-in":{en:"clean fluid in",es:"líquido limpio entra"},
+  "hd-dial-out":{en:"waste fluid out",es:"líquido con desechos sale"},
+  "hd-return":{en:"cleaned blood returns",es:"regresa sangre limpia"},
+  "hd-pump":{en:"pump",es:"bomba"},
+  "hd-fig":{en:"The hemodialysis circuit. Hover over the highlighted points to learn what each part does.",es:"El circuito de hemodiálisis. Pasa el cursor por los puntos marcados para saber qué hace cada parte."},
+  "pd-h":{en:"Peritoneal dialysis",es:"Diálisis peritoneal"},
+  "pd-lede":{en:"Instead of a machine filtering your blood, the lining of your own belly (the peritoneum) acts as the filter.",es:"En lugar de una máquina que filtre tu sangre, el recubrimiento de tu propio abdomen (el peritoneo) actúa como filtro."},
+  "pd-p1":{en:"A soft catheter, placed in the belly in a small operation, lets sterile fluid flow in and dwell for a few hours. Waste moves from the blood vessels of the peritoneum into the fluid, which is then drained out and replaced. This cycle is called an exchange.",es:"Un catéter suave, colocado en el abdomen en una pequeña cirugía, permite que un líquido estéril entre y permanezca unas horas. Los desechos pasan de los vasos sanguíneos del peritoneo al líquido, que luego se drena y se repone. Este ciclo se llama recambio."},
+  "pd-li1":{en:"CAPD (manual): you do 3–5 exchanges per day, each taking about 30–40 minutes.",es:"DPCA (manual): haces de 3 a 5 recambios al día, cada uno de unos 30–40 minutos."},
+  "pd-li2":{en:"APD (with a machine): a cycler does the exchanges overnight while you sleep.",es:"DPA (con máquina): una cicladora hace los recambios durante la noche mientras duermes."},
+  "pd-facts-h":{en:"Good to know",es:"Bueno saberlo"},
+  "pd-facts":{en:"No needles, more independence, and easier travel — but strict hygiene at every exchange is essential to prevent infection (peritonitis).",es:"Sin agujas, más independencia y viajes más fáciles, pero la higiene estricta en cada recambio es esencial para prevenir infecciones (peritonitis)."},
+  "pd-cath":{en:"catheter",es:"catéter"},
+  "pd-lining":{en:"peritoneum filters here",es:"el peritoneo filtra aquí"},
+  "pd-bag":{en:"drain bag",es:"bolsa de drenaje"},
+  "pd-fresh":{en:"fresh fluid in",es:"líquido fresco entra"},
+  "pd-fig":{en:"Peritoneal dialysis: fluid dwells in the belly while the peritoneum filters waste from the blood.",es:"Diálisis peritoneal: el líquido permanece en el abdomen mientras el peritoneo filtra los desechos de la sangre."},
+  "tx-h":{en:"Kidney transplant",es:"Trasplante de riñón"},
+  "tx-lede":{en:"A healthy kidney from a donor (living or deceased) is placed in your body and does the filtering work on its own.",es:"Un riñón sano de un donante (vivo o fallecido) se coloca en tu cuerpo y hace el trabajo de filtrado por sí solo."},
+  "tx-p1":{en:"A transplant is the option that most closely replaces normal kidney function — most people get more energy, fewer food limits and more freedom than on dialysis. It usually requires being on a waiting list, matched by blood type, tissue type and other factors.",es:"El trasplante es la opción que más se acerca a la función renal normal: la mayoría recupera energía, tiene menos restricciones de comida y más libertad que en diálisis. Por lo general requiere estar en lista de espera, con emparejamiento por tipo de sangre, tipo de tejido y otros factores."},
+  "tx-li1":{en:"You will take anti-rejection medicines every day, for as long as the transplant works.",es:"Tomarás medicamentos antirrechazo todos los días, mientras el trasplante funcione."},
+  "tx-li2":{en:"A transplant may not happen right away — dialysis is often the bridge while you wait.",es:"El trasplante puede no suceder de inmediato: la diálisis suele ser el puente mientras esperas."},
+  "tx-facts-h":{en:"Good to know",es:"Bueno saberlo"},
+  "tx-facts":{en:"A living-donor kidney often works sooner and lasts longer than one from a deceased donor. Your own kidneys are usually left in place.",es:"Un riñón de donante vivo suele funcionar antes y durar más que uno de donante fallecido. Tus propios riñones normalmente se dejan en su lugar."},
+  "tx-new":{en:"donor kidney",es:"riñón del donante"},
+  "tx-old":{en:"your kidneys (usually kept)",es:"tus riñones (normalmente se conservan)"},
+  "tx-bladder":{en:"bladder",es:"vejiga"},
+  "tx-fig":{en:"The donor kidney is placed in the lower abdomen and connected to your blood vessels and bladder.",es:"El riñón del donante se coloca en la parte baja del abdomen y se conecta a tus vasos sanguíneos y a la vejiga."},
+  "cc-h":{en:"Conservative (non-dialytic) care",es:"Cuidado conservador (sin diálisis)"},
+  "cc-lede":{en:"A legitimate, supported choice: treating symptoms and protecting quality of life without dialysis or transplant.",es:"Una opción legítima y con respaldo: tratar los síntomas y proteger la calidad de vida sin diálisis ni trasplante."},
+  "cc-p1":{en:"For some people — because of age, other illnesses, or personal values — dialysis may not improve or lengthen life meaningfully. Conservative care focuses on comfort, symptom control, blood pressure and anemia management, and emotional and family support.",es:"Para algunas personas —por edad, otras enfermedades o valores personales— la diálisis podría no mejorar ni prolongar la vida de forma significativa. El cuidado conservador se centra en la comodidad, el control de síntomas, el manejo de la presión arterial y la anemia, y el apoyo emocional y familiar."},
+  "cc-p2":{en:"Choosing conservative care is not “giving up.” It is an active plan of care made with your team, and it can be revisited at any time.",es:"Elegir el cuidado conservador no es «rendirse». Es un plan de cuidado activo hecho con tu equipo, y puede revisarse en cualquier momento."},
+  "cc-facts-h":{en:"Good to know",es:"Bueno saberlo"},
+  "cc-facts":{en:"You can change your mind and start dialysis later, as long as it remains medically possible.",es:"Puedes cambiar de opinión e iniciar diálisis más adelante, siempre que siga siendo médicamente posible."},
+  "cmp-h":{en:"Comparing the options",es:"Comparando las opciones"},
+  "cmp-lede":{en:"A side-by-side summary. “Best” depends entirely on your situation — this table is a starting point for the conversation with your team.",es:"Un resumen lado a lado. «La mejor» depende enteramente de tu situación; esta tabla es un punto de partida para conversar con tu equipo."},
+  "cmp-hd":{en:"Hemodialysis",es:"Hemodiálisis"},
+  "cmp-pd":{en:"Peritoneal dialysis",es:"Diálisis peritoneal"},
+  "cmp-tx":{en:"Transplant",es:"Trasplante"},
+  "cmp-cc":{en:"Conservative care",es:"Cuidado conservador"},
+  "cmp-r-where":{en:"Where",es:"Dónde"},
+  "cmp-hd-where":{en:"Clinic or home",es:"Clínica o casa"},
+  "cmp-pd-where":{en:"Home",es:"Casa"},
+  "cmp-tx-where":{en:"One surgery, then home",es:"Una cirugía, luego casa"},
+  "cmp-cc-where":{en:"Home",es:"Casa"},
+  "cmp-r-time":{en:"Time commitment",es:"Tiempo"},
+  "cmp-hd-time":{en:"~12 h/week (3 sessions) in center",es:"~12 h/semana (3 sesiones) en centro"},
+  "cmp-pd-time":{en:"30–40 min × 3–5 exchanges daily, or overnight",es:"30–40 min × 3–5 recambios al día, o durante la noche"},
+  "cmp-tx-time":{en:"Recovery weeks; then routine checkups",es:"Semanas de recuperación; luego controles"},
+  "cmp-cc-time":{en:"Regular visits, no sessions",es:"Visitas regulares, sin sesiones"},
+  "cmp-r-body":{en:"Main physical impact",es:"Impacto físico principal"},
+  "cmp-hd-body":{en:"Needles; blood pressure shifts; fatigue after sessions",es:"Agujas; cambios de presión; fatiga tras sesiones"},
+  "cmp-pd-body":{en:"Catheter care; risk of infection; fluid in belly",es:"Cuidado del catéter; riesgo de infección; líquido en abdomen"},
+  "cmp-tx-body":{en:"Surgery risk; lifelong anti-rejection medicine",es:"Riesgo quirúrgico; antirrechazo de por vida"},
+  "cmp-cc-body":{en:"Symptoms managed with medicines",es:"Síntomas manejados con medicamentos"},
+  "cmp-r-diet":{en:"Diet & fluids",es:"Dieta y líquidos"},
+  "cmp-hd-diet":{en:"Strict limits between sessions",es:"Límites estrictos entre sesiones"},
+  "cmp-pd-diet":{en:"Somewhat more flexible",es:"Algo más flexible"},
+  "cmp-tx-diet":{en:"Much more freedom",es:"Mucha más libertad"},
+  "cmp-cc-diet":{en:"As tolerated",es:"Según tolerancia"},
+  "sim-h":{en:"Try it: dialysis dose and time",es:"Pruébalo: dosis de diálisis y tiempo"},
+  "sim-p":{en:"A simplified model of an idea your nephrologist thinks about constantly: with longer (or more frequent) sessions, more waste is cleared and it builds up less between treatments. This is an illustration of the concept, not medical advice.",es:"Un modelo simplificado de una idea en la que tu nefrólogo piensa constantemente: con sesiones más largas (o más frecuentes), se elimina más desecho y se acumula menos entre tratamientos. Es una ilustración del concepto, no un consejo médico."},
+  "sim-lbl":{en:"Session length",es:"Duración de la sesión"},
+  "sim-clear":{en:"waste cleared per week*",es:"desecho eliminado por semana*"},
+  "sim-note":{en:"build-up between sessions",es:"acumulación entre sesiones"},
+  "disc-h":{en:"Important:",es:"Importante:"},
+  "disc":{en:"This page is educational and does not replace your medical team. Numbers, schedules and options vary from person to person. Always discuss decisions with your nephrologist and care team.",es:"Esta página es educativa y no reemplaza a tu equipo médico. Las cifras, los horarios y las opciones varían de persona a persona. Consulta siempre las decisiones con tu nefrólogo y tu equipo."},
+  "footer":{en:"Made with care for patients and their families · Illustrations are simplified and not to medical scale.",es:"Hecho con cariño para pacientes y sus familias · Las ilustraciones son simplificadas y no están a escala médica."},
+  "sim-cleared":{en:"adequate",es:"adecuado"},
+  "sim-cleared-low":{en:"low",es:"bajo"},
+  "sim-cleared-good":{en:"good",es:"bueno"},
+  "sim-note-hi":{en:"high",es:"alta"},
+  "sim-note-low":{en:"low",es:"baja"}
+};
+
+// ---------- language toggle ----------
+function setLang(l){
+  document.documentElement.lang = l==='es'?'es':'en';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=I18N[el.dataset.i18n]; if(v) el.textContent=v[l];
+  });
+  document.querySelectorAll('[data-svg]').forEach(el=>{
+    const v=I18N[el.dataset.svg]; if(v) el.textContent=v[l];
+  });
+  document.getElementById('btn-en').setAttribute('aria-pressed', l==='en');
+  document.getElementById('btn-es').setAttribute('aria-pressed', l==='es');
+  localStorage.setItem('rrt-lang', l);
+  drawChart(); // redraw canvas labels implicitly via state
+}
+document.getElementById('btn-en').onclick=()=>setLang('en');
+document.getElementById('btn-es').onclick=()=>setLang('es');
+
+// ---------- svg hover tooltips ----------
+document.querySelectorAll('[data-hot]').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const tip=el.closest('.hovercard').querySelector('.tip');
+    tip.textContent = el.dataset[document.documentElement.lang==='es'?'tipEs':'tipEn'];
+    const fig=el.closest('figure').getBoundingClientRect();
+    tip.style.left=Math.min(e.clientX-fig.left+12, fig.width-250)+'px';
+    tip.style.top=(e.clientY-fig.top-40)+'px';
+    tip.classList.add('on');
+  });
+  el.addEventListener('mouseleave',e=>{
+    el.closest('.hovercard').querySelector('.tip').classList.remove('on');
+  });
+});
+
+// ---------- clearance simulator ----------
+// Model (illustrative only): clearance/wk = k * sessionsPerWeek * sqrt(hours)
+// waste peak between sessions rises as sessions get longer/less frequent
+const ctx=document.getElementById('clearCanvas').getContext('2d');
+const hrs=document.getElementById('hrs');
+function drawChart(){
+  const W=880,H=220,L=54,B=H-34,T=16,R=W-16;
+  const h=parseFloat(hrs.value);
+  document.getElementById('hrs-val').textContent=h;
+  const spw=3; // 3 sessions/week baseline (in-center model)
+  const cleared=spw*Math.sqrt(h)/Math.sqrt(4); // relative to 4h baseline
+  const pct=Math.round(cleared*100);
+  document.getElementById('out-clear').textContent=pct+'%';
+  const note= h<2.5 ? I18N['sim-cleared-low'][curLang()] : (h<5? I18N['sim-cleared'][curLang()] : I18N['sim-cleared-good'][curLang()]);
+  document.getElementById('out-note').textContent = h<2.5? I18N['sim-note-hi'][curLang()] : (h<5? I18N['sim-cleared'][curLang()] : I18N['sim-note-low'][curLang()]);
+  // draw
+  ctx.clearRect(0,0,W,H);
+  const es=document.documentElement.lang==='es';
+  ctx.strokeStyle='#3b565e'; ctx.fillStyle='#aebbc0'; ctx.font='12px sans-serif';
+  // axes
+  ctx.beginPath();ctx.moveTo(L,T);ctx.lineTo(L,B);ctx.lineTo(R,B);ctx.stroke();
+  // toxin sawtooth for chosen hours: rises between sessions, drops during session
+  const cycle=W? (R-L)/spw : 0;
+  for(let s=0;s<spw;s++){
+    const x0=L+s*cycle;
+    const riseW=cycle*(1-0.18); // rise portion
+    ctx.beginPath();
+    ctx.moveTo(x0,B);
+    ctx.lineTo(x0+riseW,B-(B-T)*0.55*(4/Math.max(h,1)));  // peak higher when sessions short
+    ctx.lineTo(x0+cycle,B-(B-T)*0.10); // dialysis clears most
+    ctx.strokeStyle='#e0b64a'; ctx.lineWidth=2; ctx.stroke();
+  }
+  // baseline reference at 4h
+  ctx.strokeStyle='#5c7a84'; ctx.setLineDash([4,4]); ctx.beginPath();
+  ctx.moveTo(L,B-(B-T)*0.45); ctx.lineTo(R,B-(B-T)*0.45); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle='#aebbc0';
+  ctx.fillText(es?'toxins in blood':'toxins in blood',L+6,T+10);
+  ctx.fillText(es?'time →':'time →',R-52,B-8);
+  ctx.fillText('0',L-10,B+4);
+  ctx.fillText(es?'3 sessions shown':'3 sessions shown',L+6,B+4);
+}
+function curLang(){return document.documentElement.lang==='es'?'es':'en';}
+hrs.addEventListener('input',drawChart);
+setLang(localStorage.getItem('rrt-lang')||'en');
+</script>
+</body>
+</html>
